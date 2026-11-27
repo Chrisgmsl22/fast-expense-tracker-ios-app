@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS app · 5 Settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>*{box-sizing:border-box}body{margin:0;background:#eceef1;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827;-webkit-font-smoothing:antialiased}.num{font-variant-numeric:tabular-nums}.rows>div:last-child{border-bottom:0!important}</style>
+</helmet>
+<section style="padding:80px;display:flex;flex-direction:column;gap:80px;width:max-content">
+  <div style="display:flex;flex-direction:column;gap:8px;max-width:1200px">
+    <div style="font-size:13px;font-weight:600;color:#6b7280;letter-spacing:.06em;text-transform:uppercase">Fast Expense · native iOS app (SwiftUI) · official</div>
+    <h1 style="margin:0;font-size:48px;font-weight:700;letter-spacing:-1px">5 · Settings</h1>
+    <p style="margin:0;font-size:16px;line-height:1.5;color:#4b5563">The web's one long Settings page becomes a native grouped list; each card is a pushed screen. Adds the four "coming soon" areas (Categories, Preferences, Privacy, Account) plus the recurring-prompt, weekly-summary and privacy-policy screens from the briefs. iPhone 390×844 pt · MXN · partner Sam 68/32 · demo data from the live web app.</p>
+  </div>
+
+  <!-- ============ ROW 1 · SETTINGS ROOT & RULES ============ -->
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;align-items:baseline;gap:14px"><h2 style="margin:0;font-size:30px;font-weight:700;white-space:nowrap">Settings root &amp; rules</h2><span style="font-size:15px;color:#6b7280">Root list · split rule · budget rule · cards</span></div>
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:nowrap">
+
+      <!-- F1 Settings root -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Settings</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="padding:8px 20px 12px"><span style="font-size:32px;font-weight:700;letter-spacing:-.6px">Settings</span></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:14px">
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600">Expense split rule<span class="num" style="margin-left:auto">68%</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="position:relative;height:22px;display:flex;align-items:center"><span style="position:absolute;left:0;right:0;height:4px;border-radius:2px;background:#e5e7eb"></span><span style="position:absolute;left:0;width:68%;height:4px;border-radius:2px;background:#111827"></span><span style="position:absolute;left:calc(68% - 11px);width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid #d1d5db;box-shadow:0 2px 5px rgba(0,0,0,.18)"></span></div>
+                <div style="display:flex;font-size:12px;color:#6b7280"><span>Your share 68%</span><span style="margin-left:auto">Sam 32%</span></div>
+                <div style="display:flex;height:30px;border-radius:8px;overflow:hidden;font-size:12.5px;font-weight:600"><span class="num" style="flex:68;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center">You $680</span><span class="num" style="flex:32;background:#f1f2f4;color:#6b7280;display:flex;align-items:center;justify-content:center">Sam $320</span></div>
+                <div style="font-size:12px;color:#6b7280">$680 on a $1,000 shared expense · 1.7% of income</div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Budget rule<span class="num" style="margin-left:auto;color:#6b7280;font-size:14.5px">50/25/25</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Cards<span style="margin-left:auto;display:flex;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:#ca8a04"></span><span style="width:10px;height:10px;border-radius:3px;background:#6b7280"></span><span style="width:10px;height:10px;border-radius:3px;background:#2563eb"></span><span style="width:10px;height:10px;border-radius:3px;background:#9333ea"></span><span style="width:10px;height:10px;border-radius:3px;background:#16a34a"></span></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Categories<span style="margin-left:auto;color:#6b7280;font-size:14.5px">13 · 1 override</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:15.5px">Fixed income<span class="num" style="margin-left:auto;color:#6b7280;font-size:14.5px">$40,000.00</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Preferences<span style="margin-left:auto;color:#6b7280;font-size:14.5px">MXN</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Language<span style="margin-left:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:8px;padding:2px;width:96px"><span style="height:26px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#4b5563">ES</span><span style="height:26px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;background:#fff;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.12)">EN</span></span></div>
+                <div style="height:54px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><div style="display:flex;flex-direction:column;gap:1px"><span style="font-size:15.5px">Hide sensitive amounts</span><span style="font-size:12px;color:#6b7280">default · toggle on home</span></div><span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#e5e7eb;position:relative;flex-shrink:0"><span style="position:absolute;left:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:15.5px">Household<span style="margin-left:auto;color:#6b7280;font-size:14.5px">You &amp; Sam</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Account<span style="margin-left:auto;color:#6b7280;font-size:14.5px">demo@example.com</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Export data<span style="margin-left:auto;color:#6b7280;font-size:14.5px">Excel</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:15.5px">Privacy policy<svg style="margin-left:auto" width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;height:44px;display:flex;align-items:center;justify-content:center;font-size:15.5px;font-weight:600;color:#dc2626">Sign out</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">One long page → grouped list.</b> Each web card becomes a row that pushes its own screen; the list scrolls (Export, Privacy policy and Sign out sit below the fold).</li>
+          <li><b style="color:#111827">Split rule stays on top as a live card.</b> Same order as the web and the Settings mock; tap pushes the full editor.</li>
+          <li><b style="color:#111827">"More settings · coming soon" chips removed.</b> Category limits, Preferences, Privacy and Account become real rows (briefs 1, 6, 10).</li>
+          <li><b style="color:#111827">Sign out moves here from the sidebar footer.</b> The burger drawer is gone on iOS.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 01-current-screens/settings-mobile.png · 04-design-mocks/future-settings-privacy-account.png</div>
+      </div>
+
+      <!-- F2 Expense split rule -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Expense split rule</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Expense split rule</div><div style="font-size:14px;color:#6b7280;margin-top:2px">applies to shared expenses</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:14px">
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;align-items:center;font-size:16px;font-weight:500">I share expenses<span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#16a34a;position:relative;flex-shrink:0"><span style="position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+                <div style="font-size:13px;line-height:1.45;color:#6b7280">Turn this on if you split expenses with a partner. It reveals the split controls across the app; leave it off for a plain tracker.</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Partner name</span><div style="height:48px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;padding:0 14px;font-size:16px;display:flex;align-items:center">Sam</div></div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;font-size:13px;font-weight:600;color:#374151">Your share<span class="num" style="margin-left:auto;color:#111827;font-size:15px">68%</span></div>
+                <div style="display:flex;align-items:center;gap:14px"><div class="num" style="width:76px;height:44px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;display:flex;align-items:center;justify-content:center;font-size:17px">68</div><div style="flex:1;position:relative;height:28px;display:flex;align-items:center"><span style="position:absolute;left:0;right:0;height:4px;border-radius:2px;background:#e5e7eb"></span><span style="position:absolute;left:0;width:68%;height:4px;border-radius:2px;background:#111827"></span><span style="position:absolute;left:calc(68% - 14px);width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid #d1d5db;box-shadow:0 2px 6px rgba(0,0,0,.18)"></span></div></div>
+                <div style="display:flex;height:34px;border-radius:8px;overflow:hidden;font-size:13px;font-weight:600"><span style="flex:68;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center">You 68%</span><span style="flex:32;background:#f1f2f4;color:#6b7280;display:flex;align-items:center;justify-content:center">Partner 32%</span></div>
+                <div class="num" style="font-size:12.5px;line-height:1.45;color:#6b7280">On a $1,000.00 shared expense you count $680.00 and Sam covers $320.00. That $680.00 is <b style="color:#15803d">1.7%</b> of your $40,000.00 income.</div>
+              </div>
+              <div style="height:50px;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Save changes</div>
+              <div style="background:#f6f7f9;border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.45;color:#4b5563"><b style="color:#111827">Solo mode.</b> With the switch off, Settlement, the "my share" lines and the shared toggle in the Add sheet are hidden. Nothing is deleted.</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Checkbox → iOS switch.</b> Native control for an on/off rule.</li>
+          <li><b style="color:#111827">Number field + slider.</b> The web field stays for exact entry; the slider (from the Settings mock) is easier with a thumb.</li>
+          <li><b style="color:#111827">Income-slice line added from the mock.</b> Uses the real $40,000.00 fixed income.</li>
+          <li><b style="color:#111827">Save is full width.</b> Easier to reach than the web's right-aligned button.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 01-current-screens/settings-mobile.png · future-settings-privacy-account.png</div>
+      </div>
+
+      <!-- F3 Budget rule -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Budget rule</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 10px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Budget rule</div><div style="font-size:14px;color:#6b7280;margin-top:2px">In force for November 2026: 50 / 25 / 25</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:13px;line-height:1.45;color:#6b7280;padding:0 4px">How your income splits across the three buckets. The three must total 100%. A change applies from November 2026 onward; past months keep the split they had.</div>
+              <div style="border:1px solid #e6e8eb;border-top:3px solid #475569;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">Essentials (%)</span><span class="num" style="font-size:12px;color:#6b7280">$20,000.00 of $40,000.00</span></div><span style="margin-left:auto;display:flex;align-items:center;border:1px solid #e6e8eb;border-radius:10px;background:#fafbfc;height:38px"><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">−</span><span class="num" style="min-width:40px;text-align:center;font-size:17px;font-weight:600">50</span><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">+</span></span></div>
+                <div style="height:4px;border-radius:2px;background:#eef0f2;overflow:hidden"><div style="width:50%;height:100%;background:#475569"></div></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-top:3px solid #d97706;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">Discretionary (%)</span><span class="num" style="font-size:12px;color:#6b7280">$10,000.00 of $40,000.00</span></div><span style="margin-left:auto;display:flex;align-items:center;border:1px solid #e6e8eb;border-radius:10px;background:#fafbfc;height:38px"><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">−</span><span class="num" style="min-width:40px;text-align:center;font-size:17px;font-weight:600">25</span><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">+</span></span></div>
+                <div style="height:4px;border-radius:2px;background:#eef0f2;overflow:hidden"><div style="width:25%;height:100%;background:#d97706"></div></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-top:3px solid #0d9488;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">Savings/Inv (%)</span><span class="num" style="font-size:12px;color:#6b7280">$10,000.00 of $40,000.00</span></div><span style="margin-left:auto;display:flex;align-items:center;border:1px solid #e6e8eb;border-radius:10px;background:#fafbfc;height:38px"><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">−</span><span class="num" style="min-width:40px;text-align:center;font-size:17px;font-weight:600">25</span><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">+</span></span></div>
+                <div style="height:4px;border-radius:2px;background:#eef0f2;overflow:hidden"><div style="width:25%;height:100%;background:#0d9488"></div></div>
+              </div>
+              <div style="font-size:14px;color:#6b7280;padding:0 4px">Total 100%</div>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px"><span style="height:50px;border-radius:12px;border:1px solid #e6e8eb;background:#fff;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center">Reset to 50/25/25</span><span style="height:50px;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Save changes</span></div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Number fields → steppers.</b> Tap ± in 1% steps or tap the number for the number pad.</li>
+          <li><b style="color:#111827">Peso target under each bucket.</b> Shows what the % means against $40,000.00 (the Settings mock says fixed income drives the peso targets).</li>
+          <li><b style="color:#111827">3px bucket tops, copy and "Total 100%" kept.</b> Same colour system as the web.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 01-current-screens/settings-mobile.png · 03-onboarding/05-your-budgeting-rule-mobile.png</div>
+      </div>
+
+      <!-- F3b Budget rule error -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Budget rule · total ≠ 100%</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 10px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Budget rule</div><div style="font-size:14px;color:#6b7280;margin-top:2px">In force for November 2026: 50 / 25 / 25</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:13px;line-height:1.45;color:#6b7280;padding:0 4px">How your income splits across the three buckets. The three must total 100%. A change applies from November 2026 onward; past months keep the split they had.</div>
+              <div style="border:1px solid #e6e8eb;border-top:3px solid #475569;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">Essentials (%)</span><span class="num" style="font-size:12px;color:#6b7280">$20,000.00 of $40,000.00</span></div><span style="margin-left:auto;display:flex;align-items:center;border:1px solid #e6e8eb;border-radius:10px;background:#fafbfc;height:38px"><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">−</span><span class="num" style="min-width:40px;text-align:center;font-size:17px;font-weight:600">50</span><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">+</span></span></div>
+                <div style="height:4px;border-radius:2px;background:#eef0f2;overflow:hidden"><div style="width:50%;height:100%;background:#475569"></div></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-top:3px solid #d97706;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">Discretionary (%)</span><span class="num" style="font-size:12px;color:#6b7280">$12,000.00 of $40,000.00</span></div><span style="margin-left:auto;display:flex;align-items:center;border:1.5px solid #111827;border-radius:10px;background:#fff;height:38px"><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">−</span><span class="num" style="min-width:40px;text-align:center;font-size:17px;font-weight:600">30</span><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">+</span></span></div>
+                <div style="height:4px;border-radius:2px;background:#eef0f2;overflow:hidden"><div style="width:30%;height:100%;background:#d97706"></div></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-top:3px solid #0d9488;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">Savings/Inv (%)</span><span class="num" style="font-size:12px;color:#6b7280">$10,000.00 of $40,000.00</span></div><span style="margin-left:auto;display:flex;align-items:center;border:1px solid #e6e8eb;border-radius:10px;background:#fafbfc;height:38px"><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">−</span><span class="num" style="min-width:40px;text-align:center;font-size:17px;font-weight:600">25</span><span style="width:38px;text-align:center;font-size:19px;color:#6b7280">+</span></span></div>
+                <div style="height:4px;border-radius:2px;background:#eef0f2;overflow:hidden"><div style="width:25%;height:100%;background:#0d9488"></div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:10px 12px;font-size:13.5px;color:#b91c1c"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 17h.01"/></svg><span><b>Total 105%.</b> The three must total 100%. Lower one bucket by 5%.</span></div>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px"><span style="height:50px;border-radius:12px;border:1px solid #e6e8eb;background:#fff;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center">Reset to 50/25/25</span><span style="height:50px;border-radius:12px;background:#d1d5db;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Save changes</span></div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">"Total" line turns into an inline error.</b> Same rule as the web (must total 100%); Save stays disabled until it does.</li>
+          <li><b style="color:#111827">No auto-balancing.</b> The app never moves another bucket for you; the user decides which one gives.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 01-current-screens/settings-mobile.png (validation rule from the Budget rule copy)</div>
+      </div>
+
+      <!-- F4 Cards list -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Cards</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span><span style="margin-left:auto;font-weight:600">+ Add card</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Cards</div><div style="font-size:14px;color:#6b7280;margin-top:2px">Up to 10 cards. Cash is always included.</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:54px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:26px;height:18px;border-radius:5px;background:#ca8a04"></span><span style="font-size:16px">Amex Gold</span><span style="font-size:13px;color:#6b7280">Credit</span><span style="margin-left:auto;font-size:14px;color:#6b7280">Edit</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:54px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:26px;height:18px;border-radius:5px;background:#6b7280"></span><span style="font-size:16px">Amex Platinum</span><span style="font-size:13px;color:#6b7280">Credit</span><span style="margin-left:auto;font-size:14px;color:#6b7280">Edit</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:54px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:26px;height:18px;border-radius:5px;background:#2563eb"></span><span style="font-size:16px">BBVA</span><span style="font-size:13px;color:#6b7280">Debit</span><span style="margin-left:auto;font-size:14px;color:#6b7280">Edit</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:54px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:26px;height:18px;border-radius:5px;background:#9333ea"></span><span style="font-size:16px">NU</span><span style="font-size:13px;color:#6b7280">Credit</span><span style="margin-left:auto;font-size:14px;color:#6b7280">Edit</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:54px;display:flex;align-items:center;gap:12px;padding:0 14px"><span style="width:26px;height:18px;border-radius:5px;background:#16a34a"></span><span style="font-size:16px">Cash</span><span style="font-size:13px;color:#6b7280">Cash</span><span style="margin-left:auto;display:flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:#15803d"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>locked</span></div>
+              </div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px">Card colours show as dots on every expense, chip and card balance. Cash is always green.</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Card section → its own pushed list.</b> Same order, type labels and the green "locked" Cash row.</li>
+          <li><b style="color:#111827">"+ Add card" moves to the nav bar.</b> Standard iOS place for a create action.</li>
+          <li><b style="color:#111827">Inline edit form → sheet.</b> Tapping a row opens the Edit card sheet instead of expanding in place.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 01-current-screens/settings-mobile.png · 02-current-states/settings-edit-card-desktop.png</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:nowrap">
+
+      <!-- F5 Add card sheet -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Add card · sheet</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="padding:52px 20px 0;font-size:28px;font-weight:700;color:#111827">Cards</div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;top:250px;background:#fff;border-radius:16px 16px 0 0;padding:8px 20px 34px;display:flex;flex-direction:column;gap:14px;z-index:6">
+              <span style="width:36px;height:5px;border-radius:3px;background:#d1d5db;align-self:center;flex-shrink:0"></span>
+              <div style="display:flex;align-items:center;font-size:16px"><span style="color:#6b7280">Cancel</span><span style="margin:0 auto;font-weight:600;font-size:17px">Add card</span><span style="font-weight:600;color:#9ca3af">Add</span></div>
+              <div style="font-size:12.5px;color:#6b7280">Up to 10 cards.</div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Card name</span><div style="height:48px;border:1.5px solid #111827;border-radius:12px;background:#fff;padding:0 14px;font-size:16px;display:flex;align-items:center;color:#9ca3af">e.g. Amex Gold</div></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Type</span><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:34px;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">Credit</span><span style="height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Debit</span></div></div>
+              <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:600;color:#374151">Color</span>
+                <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;justify-items:center">
+                  <span style="width:46px;height:46px;border-radius:12px;background:#6b7280;box-shadow:0 0 0 3px #fff,0 0 0 5px #111827"></span><span style="width:46px;height:46px;border-radius:12px;background:#ca8a04"></span><span style="width:46px;height:46px;border-radius:12px;background:#9333ea"></span><span style="width:46px;height:46px;border-radius:12px;background:#2563eb"></span><span style="width:46px;height:46px;border-radius:12px;background:#16a34a"></span>
+                  <span style="width:46px;height:46px;border-radius:12px;background:#dc2626"></span><span style="width:46px;height:46px;border-radius:12px;background:#0d9488"></span><span style="width:46px;height:46px;border-radius:12px;background:#db2777"></span><span style="width:46px;height:46px;border-radius:12px;background:#d97706"></span><span style="width:46px;height:46px;border-radius:12px;background:#4f46e5"></span>
+                </div>
+              </div>
+              <div style="height:48px;display:flex;align-items:center;gap:10px;border-top:1px solid #eef0f2;padding-top:6px;font-size:15.5px">Enter a custom color (HEX)<span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#e5e7eb;position:relative;flex-shrink:0"><span style="position:absolute;left:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Inline form → medium sheet.</b> Cancel / Add in the header replace the bottom buttons.</li>
+          <li><b style="color:#111827">Type select → segmented control.</b> Two options fit on one line.</li>
+          <li><b style="color:#111827">Same 10 swatches, bigger.</b> 46 pt targets; the custom HEX checkbox becomes a switch.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 02-current-states/settings-add-card-mobile.png · 03-onboarding/06-add-a-payment-method--mobile.png</div>
+      </div>
+
+      <!-- F6 Edit card sheet -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Edit card · sheet</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="padding:52px 20px 0;font-size:28px;font-weight:700;color:#111827">Cards</div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;top:180px;background:#fff;border-radius:16px 16px 0 0;padding:8px 20px 34px;display:flex;flex-direction:column;gap:14px;z-index:6">
+              <span style="width:36px;height:5px;border-radius:3px;background:#d1d5db;align-self:center;flex-shrink:0"></span>
+              <div style="display:flex;align-items:center;font-size:16px"><span style="color:#6b7280">Cancel</span><span style="margin:0 auto;font-weight:600;font-size:17px">Edit card</span><span style="font-weight:600">Save</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Card name</span><div style="height:48px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;padding:0 14px;font-size:16px;display:flex;align-items:center">Amex Gold</div></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Type</span><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:34px;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">Credit</span><span style="height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Debit</span></div></div>
+              <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:600;color:#374151">Color</span>
+                <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;justify-items:center">
+                  <span style="width:46px;height:46px;border-radius:12px;background:#6b7280"></span><span style="width:46px;height:46px;border-radius:12px;background:#ca8a04;box-shadow:0 0 0 3px #fff,0 0 0 5px #111827"></span><span style="width:46px;height:46px;border-radius:12px;background:#9333ea"></span><span style="width:46px;height:46px;border-radius:12px;background:#2563eb"></span><span style="width:46px;height:46px;border-radius:12px;background:#16a34a"></span>
+                  <span style="width:46px;height:46px;border-radius:12px;background:#dc2626"></span><span style="width:46px;height:46px;border-radius:12px;background:#0d9488"></span><span style="width:46px;height:46px;border-radius:12px;background:#db2777"></span><span style="width:46px;height:46px;border-radius:12px;background:#d97706"></span><span style="width:46px;height:46px;border-radius:12px;background:#4f46e5"></span>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;border-top:1px solid #eef0f2;padding-top:6px">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;font-size:15.5px">Enter a custom color (HEX)<span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#16a34a;position:relative;flex-shrink:0"><span style="position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+                <div style="display:flex;align-items:center;gap:10px"><span style="width:36px;height:36px;border-radius:9px;background:#ca8a04"></span><div style="flex:1;height:44px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;padding:0 14px;display:flex;align-items:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:15px">#CA8A04</div></div>
+              </div>
+              <div style="margin-top:auto;display:flex;flex-direction:column;gap:6px"><span style="height:50px;border-radius:12px;background:#fef2f2;color:#dc2626;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9M10 13h4"/></svg>Archive card</span><span style="font-size:12px;color:#6b7280;text-align:center">Past expenses keep this card. It leaves the card picker.</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Inline edit row → sheet.</b> Same fields as the web edit state (name, type, colour, custom HEX, Archive).</li>
+          <li><b style="color:#111827">Archive moves to the bottom.</b> Destructive action kept away from Save; the caption explains what it does.</li>
+          <li><b style="color:#111827">Custom HEX shown on.</b> Hex in Geist Mono with a live swatch.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 02-current-states/settings-edit-card-desktop.png</div>
+      </div>
+    </div>
+  </div>
+  <!-- ============ ROW 2 · CATEGORIES & BUCKETS ============ -->
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;align-items:baseline;gap:14px"><h2 style="margin:0;font-size:30px;font-weight:700;white-space:nowrap">Categories &amp; buckets</h2><span style="font-size:15px;color:#6b7280">Brief 6 · CHORE-8.c (+ CHORE-27 controls) · follows categoryManagement.html option 1a, mobile</span></div>
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:nowrap">
+
+      <!-- F7 Categories list -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Categories</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span><span style="margin-left:auto;font-size:26px;font-weight:300;line-height:1;padding:0 6px">+</span></div>
+            <div style="padding:2px 20px 4px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Categories</div><div style="font-size:13px;line-height:1.4;color:#6b7280;margin-top:2px">Each category counts toward one budget bucket. Subcategories inherit it unless you override.</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column">
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:12px 4px 6px"><span style="width:3px;height:12px;border-radius:2px;background:#475569"></span>Essentials · 10</div>
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#4f46e5;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Housing</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">5 subcategories · 312 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#65a30d;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Groceries</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">2 subcategories · 148 expenses</span></div><span style="font-size:10.5px;font-weight:600;color:#92400e;background:#fffbeb;border:1px solid #fcd34d;border-radius:999px;padding:1px 7px;white-space:nowrap">1 override</span><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#db2777;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Charity</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">No subcategories · 12 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#7c3aed;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Transport</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">7 subcategories · 203 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#0891b2;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Insurance</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">2 subcategories · 24 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#2563eb;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Services</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">6 subcategories · 98 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#e11d48;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Health</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">6 subcategories · 57 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#d97706;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Combined Expenses</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">3 subcategories · 88 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#b91c1c;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Debt</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">No subcategories · 0 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#0ea5e9;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Personal</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">8 subcategories · 86 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:12px 4px 6px"><span style="width:3px;height:12px;border-radius:2px;background:#d97706"></span>Discretionary · 1</div>
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#c026d3;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Disposable Income</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">6 subcategories · 174 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Replaces the "Category limits · coming soon" chip.</b> Settings › Categories shows "13 · 1 override".</li>
+          <li><b style="color:#111827">Grouped by bucket (1a), one row per category.</b> The web's bucket chip becomes the group header; tap a row to open it.</li>
+          <li><b style="color:#111827">Amber "1 override" badge</b> marks a category whose subcategory counts elsewhere.</li>
+          <li><b style="color:#111827">"+" in the nav bar</b> opens New category. Savings, Unassigned and Archived sit lower (see the scrolled frame).</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 04-design-mocks/future-category-management.png · html/categoryManagement.html</div>
+      </div>
+
+      <!-- F8 Groceries detail -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Category · Groceries</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Categories</span><span style="margin-left:auto;font-weight:600">Edit</span></div>
+            <div style="padding:4px 20px 14px;display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:8px;background:#65a30d"></span><div style="display:flex;flex-direction:column"><span style="font-size:28px;font-weight:700;letter-spacing:-.5px;line-height:1.1">Groceries</span><span style="font-size:13px;color:#6b7280">148 expenses</span></div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:0 4px">Counts toward</div>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:36px;border-radius:8px;background:#475569;color:#fff;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;font-weight:600">Essential</span><span style="height:36px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;color:#4b5563"><span style="width:7px;height:7px;border-radius:50%;background:#d97706"></span>Discretionary</span></div>
+              <div style="font-size:12.5px;color:#6b7280;padding:0 4px 8px">Changing this updates every month's totals.</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:0 4px">Monthly budget</div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:0 14px;height:52px;display:flex;align-items:center;gap:10px"><div style="display:flex;flex-direction:column"><span style="font-size:15.5px">Limit · other months</span><span class="num" style="font-size:12px;color:#15803d">$3,800.40 left of $6,500.00 this month</span></div><span class="num" style="margin-left:auto;font-size:15.5px;font-weight:600">$6,500.00</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:10px 4px 0">Subcategories · 2</div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:50px;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Groceries<span style="margin-left:auto;font-size:12.5px;color:#6b7280;border:1px dashed #cbd0d6;border-radius:999px;padding:3px 9px">Inherits · Essential</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:54px;display:flex;align-items:center;gap:8px;padding:0 14px 0 11px;background:#fffbeb;border-left:3px solid #d97706;border-bottom:1px solid #eef0f2"><div style="display:flex;flex-direction:column"><span style="font-size:15.5px">Restaurants/other</span><span style="font-size:10.5px;font-weight:700;letter-spacing:.06em;color:#b45309">OVERRIDE</span></div><span style="margin-left:auto;display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:#92400e;background:#fef3c7;border:1px solid #d97706;border-radius:999px;padding:3px 9px"><span style="width:6px;height:6px;border-radius:50%;background:#d97706"></span>Discretionary</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:48px;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:15.5px;color:#374151">+ Add subcategory</div>
+              </div>
+              <div style="margin-top:14px;border:1px solid #e6e8eb;border-radius:14px;height:50px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:#dc2626">Archive category</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Bucket chip → 2-option segmented control,</b> as the mock specifies. Tapping the other side opens the confirmation sheet.</li>
+          <li><b style="color:#111827">Inherits = dashed chip; override = amber rail, OVERRIDE label, filled chip.</b> Same visual rules as desktop.</li>
+          <li><b style="color:#111827">Monthly budget row</b> shares the dashboard's set-limit path (same "No limit / default" sheet).</li>
+          <li><b style="color:#111827">Rename &amp; recolour from "Edit"</b> in the nav bar; Archive or Delete as the bottom button.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-category-management.png (mobile · category detail) · 02-current-states/category-edit-limit-mobile.png</div>
+      </div>
+
+      <!-- F9 Override sheet -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Subcategory override · sheet</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="padding:52px 20px 0;display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:8px;background:#65a30d"></span><span style="font-size:28px;font-weight:700">Groceries</span></div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;top:330px;background:#fff;border-radius:16px 16px 0 0;padding:8px 20px 34px;display:flex;flex-direction:column;gap:12px;z-index:6">
+              <span style="width:36px;height:5px;border-radius:3px;background:#d1d5db;align-self:center;flex-shrink:0"></span>
+              <div style="display:flex;align-items:flex-start"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:19px;font-weight:700">Restaurants/other</span><span style="font-size:13px;color:#6b7280">In Groceries · counts toward</span></div><span style="margin-left:auto;width:30px;height:30px;border-radius:50%;background:#f1f2f4;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:14px;font-weight:700">✕</span></div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;overflow:hidden">
+                <div style="height:56px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:22px;height:22px;border-radius:50%;border:2px solid #cbd0d6"></span><div style="display:flex;flex-direction:column"><span style="font-size:15.5px">Inherit from Groceries</span><span style="font-size:12px;color:#6b7280">Essential</span></div></div>
+                <div style="height:50px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:22px;height:22px;border-radius:50%;border:2px solid #cbd0d6"></span><span style="font-size:15.5px">Essential</span><span style="margin-left:auto;width:8px;height:8px;border-radius:50%;background:#475569"></span></div>
+                <div style="height:50px;display:flex;align-items:center;gap:12px;padding:0 14px;background:#fffbeb"><span style="width:22px;height:22px;border-radius:50%;border:7px solid #111827;background:#fff"></span><span style="font-size:15.5px;font-weight:600">Discretionary</span><span style="margin-left:auto;width:8px;height:8px;border-radius:50%;background:#d97706"></span></div>
+              </div>
+              <div class="num" style="background:#fffbeb;border:1px solid #fcd34d;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;color:#92400e">Keeping Restaurants/other in Discretionary means its spending counts there every month: <b>$285.60</b> in November, from 1 expense.</div>
+              <div style="margin-top:auto;display:flex;flex-direction:column;gap:6px"><span style="height:50px;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Apply override</span><span style="height:40px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#6b7280">Cancel</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Desktop popover → medium bottom sheet</b> (mock: "override as a bottom sheet").</li>
+          <li><b style="color:#111827">Three choices, plain-words impact line, nothing changes until Apply.</b> Picking "Inherit" is the "Reset to inherit" action.</li>
+          <li><b style="color:#111827">Impact uses the real month:</b> Tacos, $285.60 my share, is the only Restaurants/other expense in November.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-category-management.png (setting a subcategory override)</div>
+      </div>
+
+      <!-- F10 Bucket change confirmation -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Bucket-change confirmation</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="padding:52px 20px 0;display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:8px;background:#0ea5e9"></span><span style="font-size:28px;font-weight:700">Personal</span></div>
+            <div style="padding:16px 16px 0"><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Essential</span><span style="height:36px;border-radius:8px;background:#fef3c7;border:1px solid #d97706;color:#92400e;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">Discretionary</span></div></div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;top:390px;background:#fff;border-radius:16px 16px 0 0;padding:8px 20px 34px;display:flex;flex-direction:column;gap:12px;z-index:6">
+              <span style="width:36px;height:5px;border-radius:3px;background:#d1d5db;align-self:center;flex-shrink:0"></span>
+              <div style="font-size:20px;font-weight:700;padding-top:4px">Move Personal to Discretionary?</div>
+              <div style="font-size:14px;line-height:1.45;color:#4b5563">Moving Personal to Discretionary updates every month's totals, past months included.</div>
+              <div class="num" style="border:1px solid #e6e8eb;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:6px;font-size:14.5px">
+                <div style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#475569"></span>Essentials<span style="margin-left:auto;font-weight:600">− $41,250.00</span></div>
+                <div style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#d97706"></span>Discretionary<span style="margin-left:auto;font-weight:600">+ $41,250.00</span></div>
+                <div style="font-size:12px;color:#6b7280;border-top:1px solid #eef0f2;padding-top:6px">86 expenses across 14 months · $320.00 in November</div>
+              </div>
+              <div style="font-size:13px;color:#4b5563">Its 8 subcategories inherit, so they move too.</div>
+              <div style="margin-top:auto;display:flex;flex-direction:column;gap:6px"><span style="height:50px;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Move to Discretionary</span><span style="height:40px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#6b7280">Cancel</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Desktop dialog → bottom sheet.</b> The segment shows the pending choice; it only commits after "Move to Discretionary".</li>
+          <li><b style="color:#111827">Peso shift, expense count and the subcategories that move along</b> — all fields the brief asks for. Overrides stay where they are.</li>
+          <li><b style="color:#111827">All-months figures are the mock's</b> (demo history isn't in the pack); November uses the real $320.00.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-category-management.png (bucket-change confirmation)</div>
+      </div>
+
+      <!-- F11 Edit name & colour -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Rename &amp; recolour · sheet</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="padding:52px 20px 0;display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:8px;background:#65a30d"></span><span style="font-size:28px;font-weight:700">Groceries</span></div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;top:300px;background:#fff;border-radius:16px 16px 0 0;padding:8px 20px 34px;display:flex;flex-direction:column;gap:14px;z-index:6">
+              <span style="width:36px;height:5px;border-radius:3px;background:#d1d5db;align-self:center;flex-shrink:0"></span>
+              <div style="display:flex;align-items:center;font-size:16px"><span style="color:#6b7280">Cancel</span><span style="margin:0 auto;font-weight:600;font-size:17px">Edit category</span><span style="font-weight:600">Save</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Name</span><div style="height:48px;border:1.5px solid #111827;border-radius:12px;background:#fff;padding:0 14px;font-size:16px;display:flex;align-items:center">Groceries</div></div>
+              <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:600;color:#374151">Colour</span>
+                <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;justify-items:center">
+                  <span style="width:38px;height:38px;border-radius:10px;background:#4f46e5"></span><span style="width:38px;height:38px;border-radius:10px;background:#65a30d;box-shadow:0 0 0 3px #fff,0 0 0 5px #111827"></span><span style="width:38px;height:38px;border-radius:10px;background:#db2777"></span><span style="width:38px;height:38px;border-radius:10px;background:#7c3aed"></span><span style="width:38px;height:38px;border-radius:10px;background:#0891b2"></span><span style="width:38px;height:38px;border-radius:10px;background:#ea580c"></span><span style="width:38px;height:38px;border-radius:10px;background:#e11d48"></span>
+                  <span style="width:38px;height:38px;border-radius:10px;background:#92400e"></span><span style="width:38px;height:38px;border-radius:10px;background:#525252"></span><span style="width:38px;height:38px;border-radius:10px;background:#c026d3"></span><span style="width:38px;height:38px;border-radius:10px;background:#2563eb"></span><span style="width:38px;height:38px;border-radius:10px;background:#0d9488"></span><span style="width:38px;height:38px;border-radius:10px;background:#0f1115"></span><span style="width:38px;height:38px;border-radius:10px;background:#ca8a04"></span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px"><span style="font-size:13px;font-weight:600;color:#374151;width:54px">Custom</span><span style="width:36px;height:36px;border-radius:9px;background:#65a30d"></span><div style="flex:1;height:44px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;padding:0 14px;display:flex;align-items:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:15px">#65A30D</div></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Row menu "Rename &amp; recolour" → sheet from the nav bar Edit.</b></li>
+          <li><b style="color:#111827">Same swatches + hex as Cards,</b> per the brief; the new colour updates every chip, bar and rail.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-category-management.png (edit name &amp; color)</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:nowrap">
+
+      <!-- F12 New category -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">New category · full-height sheet</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" dark="{{ true }}" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#0f1115;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="position:absolute;left:16px;right:16px;top:48px;height:24px;border-radius:12px 12px 0 0;background:#3a3f48"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;top:58px;background:#fff;border-radius:16px 16px 0 0;padding:8px 20px 34px;display:flex;flex-direction:column;gap:14px">
+              <span style="width:36px;height:5px;border-radius:3px;background:#d1d5db;align-self:center;flex-shrink:0"></span>
+              <div style="display:flex;align-items:center;font-size:16px"><span style="color:#6b7280">Cancel</span><span style="margin:0 auto;font-weight:600;font-size:17px">New category</span><span style="font-weight:600">Create</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Name</span><div style="height:48px;border:1.5px solid #111827;border-radius:12px;background:#fff;padding:0 14px;font-size:16px;display:flex;align-items:center">Travel</div></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Counts toward <span style="font-weight:400;color:#6b7280">· required</span></span><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:36px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;color:#4b5563"><span style="width:7px;height:7px;border-radius:50%;background:#475569"></span>Essential</span><span style="height:36px;border-radius:8px;background:#fef3c7;border:1px solid #d97706;color:#92400e;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;font-weight:600"><span style="width:7px;height:7px;border-radius:50%;background:#d97706"></span>Discretionary</span></div></div>
+              <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:600;color:#374151">Colour</span>
+                <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;justify-items:center">
+                  <span style="width:38px;height:38px;border-radius:10px;background:#4f46e5"></span><span style="width:38px;height:38px;border-radius:10px;background:#65a30d"></span><span style="width:38px;height:38px;border-radius:10px;background:#db2777"></span><span style="width:38px;height:38px;border-radius:10px;background:#7c3aed"></span><span style="width:38px;height:38px;border-radius:10px;background:#0891b2"></span><span style="width:38px;height:38px;border-radius:10px;background:#ea580c"></span><span style="width:38px;height:38px;border-radius:10px;background:#e11d48"></span>
+                  <span style="width:38px;height:38px;border-radius:10px;background:#92400e"></span><span style="width:38px;height:38px;border-radius:10px;background:#525252"></span><span style="width:38px;height:38px;border-radius:10px;background:#c026d3"></span><span style="width:38px;height:38px;border-radius:10px;background:#2563eb"></span><span style="width:38px;height:38px;border-radius:10px;background:#0d9488"></span><span style="width:38px;height:38px;border-radius:10px;background:#0f1115;box-shadow:0 0 0 3px #fff,0 0 0 5px #111827"></span><span style="width:38px;height:38px;border-radius:10px;background:#ca8a04"></span>
+                </div>
+              </div>
+              <div style="height:44px;border:1px dashed #cbd0d6;border-radius:12px;padding:0 14px;display:flex;align-items:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#9ca3af">Custom hex</div>
+              <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:600;color:#374151">Subcategories <span style="font-weight:400;color:#6b7280">· optional</span></span>
+                <div style="display:flex;gap:8px;flex-wrap:wrap"><span style="height:32px;display:flex;align-items:center;gap:6px;border:1px solid #e6e8eb;border-radius:999px;padding:0 12px;font-size:14px">Flights <span style="color:#9ca3af">✕</span></span><span style="height:32px;display:flex;align-items:center;gap:6px;border:1px solid #e6e8eb;border-radius:999px;padding:0 12px;font-size:14px">Hotels <span style="color:#9ca3af">✕</span></span><span style="height:32px;display:flex;align-items:center;border:1px dashed #cbd0d6;border-radius:999px;padding:0 12px;font-size:14px;color:#4b5563">+ Add</span></div>
+              </div>
+              <div style="font-size:12.5px;color:#6b7280">New categories have no expenses, so no totals change.</div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">"+ Add category" → full-height sheet</b> from the list's "+" (as the mock says).</li>
+          <li><b style="color:#111827">Bucket is required</b> (Essential or Discretionary only — Savings and Unassigned are fixed). Create stays disabled without it.</li>
+          <li><b style="color:#111827">Subcategories as removable chips;</b> they inherit the new bucket.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-category-management.png (add category)</div>
+      </div>
+
+      <!-- F13 Archive vs delete -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Archive vs delete · action sheet</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="padding:52px 20px 0;display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:8px;background:#4f46e5"></span><div style="display:flex;flex-direction:column"><span style="font-size:28px;font-weight:700;line-height:1.1">Housing</span><span style="font-size:13px;color:#6b7280">312 expenses</span></div></div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:10px;right:10px;bottom:34px;display:flex;flex-direction:column;gap:8px;z-index:6">
+              <div style="background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+                <div style="padding:14px 16px;text-align:center;font-size:13px;color:#6b7280;border-bottom:1px solid #eef0f2">Housing has 312 expenses</div>
+                <div style="padding:14px 16px;text-align:center;display:flex;flex-direction:column;gap:3px;border-bottom:1px solid #eef0f2"><span style="font-size:18px;font-weight:600;color:#111827">Archive Housing</span><span style="font-size:12.5px;color:#6b7280">Past expenses and totals stay. It leaves the expense pickers.</span></div>
+                <div style="padding:14px 16px;text-align:center;display:flex;flex-direction:column;gap:3px"><span style="font-size:18px;color:#c4c8ce">Delete</span><span style="font-size:12.5px;color:#9ca3af">Only categories with no expenses can be deleted.</span></div>
+              </div>
+              <div style="background:#fff;border-radius:14px;height:56px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600">Cancel</div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Row menu → native action sheet</b> from the "Archive category" button.</li>
+          <li><b style="color:#111827">With expenses: Archive only,</b> Delete shown disabled with the reason. With 0 expenses (e.g. Debt): Delete is red, then a "This can't be undone" alert.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-category-management.png (archive vs delete)</div>
+      </div>
+
+      <!-- F14 Archived list -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Categories · scrolled, Archived open</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 6</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="position:relative;height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px;border-bottom:1px solid #eef0f2"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span><span style="position:absolute;left:0;right:0;text-align:center;font-weight:600;pointer-events:none">Categories</span><span style="margin-left:auto;font-size:26px;font-weight:300;line-height:1;padding:0 6px">+</span></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column">
+              <div class="rows" style="border:1px solid #e6e8eb;border-top:0;border-radius:0 0 14px 14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#b91c1c;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Debt</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">No subcategories · 0 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#0ea5e9;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Personal</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">8 subcategories · 86 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:12px 4px 6px"><span style="width:3px;height:12px;border-radius:2px;background:#d97706"></span>Discretionary · 1</div>
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#c026d3;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Disposable Income</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">6 subcategories · 174 expenses</span></div><span style="margin-left:auto"></span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:12px 4px 6px"><span style="width:3px;height:12px;border-radius:2px;background:#0d9488"></span>Savings/Inv · 1</div>
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#0d9488;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Savings</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">Always counts as savings · fixed</span></div><span style="margin-left:auto"></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:12px 4px 6px"><span style="width:3px;height:12px;border-radius:2px;background:#9ca3af"></span>No bucket · 1</div>
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#9ca3af;flex-shrink:0"></span><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;line-height:1.2">Unassigned</span><span style="font-size:11.5px;color:#6b7280;line-height:1.3">Expenses waiting for a category · fixed</span></div><span style="margin-left:auto"></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+              </div>
+              <div style="margin-top:14px;border:1px solid #e6e8eb;border-radius:14px;background:#f6f7f9;overflow:hidden">
+                <div style="height:44px;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:15px;font-weight:600;color:#374151;border-bottom:1px solid #eef0f2">Archived<span style="font-weight:400;color:#6b7280">2</span><svg style="margin-left:auto" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></div>
+                <div style="height:54px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2"><span style="width:14px;height:14px;border-radius:4px;background:#d6b48a"></span><div style="display:flex;flex-direction:column"><span style="font-size:15px;color:#4b5563">Pets</span><span style="font-size:11.5px;color:#6b7280">Essential · 41 expenses</span></div><span style="margin-left:auto;height:32px;display:flex;align-items:center;border:1px solid #e6e8eb;background:#fff;border-radius:999px;padding:0 14px;font-size:14px;font-weight:600">Restore</span></div>
+                <div style="height:54px;display:flex;align-items:center;gap:10px;padding:0 14px"><span style="width:14px;height:14px;border-radius:4px;background:#f0a8c0"></span><div style="display:flex;flex-direction:column"><span style="font-size:15px;color:#4b5563">Wedding</span><span style="font-size:11.5px;color:#6b7280">Discretionary · 63 expenses</span></div><span style="margin-left:auto;height:32px;display:flex;align-items:center;border:1px solid #e6e8eb;background:#fff;border-radius:999px;padding:0 14px;font-size:14px;font-weight:600">Restore</span></div>
+              </div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:8px 4px 0">Archived categories keep their bucket, so past months don't change. They don't appear when you add an expense.</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Savings and Unassigned show a lock,</b> no chevron and no menu (fixed buckets).</li>
+          <li><b style="color:#111827">Collapsed "Archived (2)" at the end;</b> here it's open. Restore returns a category to its group.</li>
+          <li><b style="color:#111827">Pets and Wedding are the mock's archived examples</b> (no archived categories exist in the demo data).</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-category-management.png (archived list)</div>
+      </div>
+    </div>
+  </div>
+  <!-- ============ ROW 3 · PREFERENCES, PRIVACY & NOTIFICATIONS ============ -->
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;align-items:baseline;gap:14px"><h2 style="margin:0;font-size:30px;font-weight:700;white-space:nowrap">Preferences, privacy &amp; notifications</h2><span style="font-size:15px;color:#6b7280">Briefs 1, 2, 5 · Settings mock · Export</span></div>
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:nowrap">
+
+      <!-- F15 Preferences -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Preferences</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Settings mock</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Preferences</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:8px">
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Currency<span class="num" style="margin-left:auto;color:#6b7280;font-size:14.5px">MXN · $1,000.00</span></div>
+                <div style="height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:15.5px">Month boundary<span style="margin-left:auto;color:#6b7280;font-size:14.5px">America/Mexico_City</span></div>
+              </div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px 10px">All totals are in MXN. Months start and end at midnight, Mexico City time.</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:0 4px">Language</div>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Español</span><span style="height:36px;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">English</span></div>
+              <div style="font-size:12.5px;color:#6b7280;padding:0 4px 10px">Choose the app's language on this iPhone.</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:0 4px">Theme</div>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:36px;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">System</span><span style="height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Light</span><span style="height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Dark</span></div>
+              <div style="font-size:12.5px;color:#6b7280;padding:0 4px">System follows the iPhone's appearance setting.</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Replaces "Preferences · coming soon".</b> Fields from the Settings mock: Currency, Month boundary, Language, Theme.</li>
+          <li><b style="color:#111827">Currency is read-only.</b> Spec 0006 §8 defers a per-account currency.</li>
+          <li><b style="color:#111827">Language moves here from its own web card</b> and now applies per iPhone, not per browser. Theme needs a dark palette that isn't designed yet.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-settings-privacy-account.png · settings-mobile.png (Language card)</div>
+      </div>
+
+      <!-- F16 Privacy -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Privacy</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 1</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Privacy</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:12px 14px;display:flex;align-items:center;gap:12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15.5px">Hide sensitive amounts by default</span><span style="font-size:12px;color:#6b7280">default · toggle on home</span></div><span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#16a34a;position:relative;flex-shrink:0"><span style="position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px">Sets the default when the app opens. The live toggle is the eye on Dashboard; it masks every money figure in the app.</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:10px 4px 0">Preview</div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:14px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280">Spent (my share)<span style="margin-left:auto;font-size:18px;font-weight:700;color:#111827;letter-spacing:2px">$ ••••••</span></div>
+                <div style="height:6px;border-radius:3px;background:#eef0f2;overflow:hidden"><div style="width:72%;height:100%;background:#475569"></div></div>
+                <div style="font-size:12px;color:#9ca3af">Bars and charts keep their shape; only the figures are masked.</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:14px 4px 0"><span style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280">iPhone only</span><span style="font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#6b21a8;background:#f3e8ff;border-radius:999px;padding:2px 7px">Proposal</span></div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:12px 14px;display:flex;align-items:center;gap:12px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15.5px">Hide in the app switcher</span><span style="font-size:12px;color:#6b7280">Blurs the app's preview when you leave it</span></div><span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#16a34a;position:relative;flex-shrink:0"><span style="position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;height:48px;padding:0 14px;display:flex;align-items:center;font-size:15.5px;margin-top:6px">Privacy policy<svg style="margin-left:auto" width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Slice 2.8 (P12).</b> Default lives here; the eye on Dashboard flips it for the whole app. Masked format <span style="font-family:'Geist Mono',monospace">$ ••••••</span>.</li>
+          <li><b style="color:#111827">localStorage → on-device preference</b> (UserDefaults); persists across launches.</li>
+          <li><b style="color:#111827">Proposal:</b> blur in the app switcher, from the brief's "(inferred)" native note.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 05-future-screens.md Brief 1 · future-settings-privacy-account.png</div>
+      </div>
+
+      <!-- F17 Recurring prompts -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Recurring expenses</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 2</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Recurring expenses</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:12px 14px;display:flex;align-items:center;gap:12px"><span style="font-size:15.5px">Recurring expense prompts</span><span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#e5e7eb;position:relative;flex-shrink:0"><span style="position:absolute;left:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px">When this is on, the month-rollover prompt won't appear. Turn off to re-enable.</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:14px 4px 0">What the prompt looks like</div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#f6f7f9;padding:14px;display:flex;flex-direction:column;gap:10px">
+                <div style="font-size:15px;font-weight:600;line-height:1.35">Last month you marked 3 expenses as recurring. Auto-add to December?</div>
+                <div style="background:#fff;border:1px solid #e6e8eb;border-radius:10px;overflow:hidden;font-size:13.5px">
+                  <div class="num" style="height:38px;display:flex;align-items:center;gap:8px;padding:0 10px;border-bottom:1px solid #eef0f2"><span style="width:3px;height:18px;border-radius:2px;background:#4f46e5"></span>Monthly rent<span style="margin-left:auto;font-weight:600">$12,000.00</span></div>
+                  <div class="num" style="height:38px;display:flex;align-items:center;gap:8px;padding:0 10px;border-bottom:1px solid #eef0f2"><span style="width:3px;height:18px;border-radius:2px;background:#2563eb"></span>Internet<span style="margin-left:auto;font-weight:600">$650.00</span></div>
+                  <div class="num" style="height:38px;display:flex;align-items:center;gap:8px;padding:0 10px"><span style="width:3px;height:18px;border-radius:2px;background:#0ea5e9"></span>Streaming subscriptions<span style="margin-left:auto;font-weight:600">$320.00</span></div>
+                </div>
+                <div style="display:flex;gap:6px"><span style="flex:1;height:36px;border-radius:10px;background:#111827;color:#fff;font-size:13.5px;font-weight:600;display:flex;align-items:center;justify-content:center">Add them</span><span style="flex:1;height:36px;border-radius:10px;border:1px solid #e6e8eb;background:#fff;font-size:13.5px;font-weight:600;display:flex;align-items:center;justify-content:center">Skip</span><span style="flex:1.4;height:36px;border-radius:10px;font-size:13px;color:#6b7280;display:flex;align-items:center;justify-content:center">Don't show again</span></div>
+              </div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px">Shows once per month, on your first visit to a new month. Mark an expense as recurring in the Add sheet.</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Slices 3.1–3.4.</b> Toggle and help copy exactly as the brief; preview shows the rollover sheet (designed in 3 · Expenses).</li>
+          <li><b style="color:#111827">Copy needs a decision:</b> the brief's help text describes a "suppress" switch (on = no prompt) but the label reads "prompts". Suggest label "Skip month-rollover prompt", or flip the help text. Shown off = prompts appear.</li>
+          <li><b style="color:#111827">Example rows</b> are the demo's fixed bills (rent, internet, streaming) — which ones are flagged is invented.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 05-future-screens.md Brief 2</div>
+      </div>
+
+      <!-- F18 Weekly summary -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Weekly summary</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 5</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#6b21a8;background:#f3e8ff;border-radius:999px;padding:3px 8px">Proposal</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Weekly summary</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:8px">
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;padding:12px 14px;display:flex;align-items:center;gap:12px"><span style="font-size:15.5px">Send me a weekly summary</span><span style="margin-left:auto;width:51px;height:31px;border-radius:16px;background:#16a34a;position:relative;flex-shrink:0"><span style="position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2)"></span></span></div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px">Last week (Mon–Sun, Mexico City): Spent, Saved, Remaining and your top 3 categories. No reminders, no settlement nudges.</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280;padding:10px 4px 0">Send on</div>
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:40px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Sunday</div>
+                <div style="height:40px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px;font-weight:600">Monday<svg style="margin-left:auto" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+                <div style="height:40px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Tuesday</div>
+                <div style="height:40px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Wednesday</div>
+                <div style="height:40px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Thursday</div>
+                <div style="height:40px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Friday</div>
+                <div style="height:40px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Saturday</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:10px 4px 0"><span style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#6b7280">Deliver as</span><span style="font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#6b21a8;background:#f3e8ff;border-radius:999px;padding:2px 7px">Proposal</span></div>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:34px;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">Email</span><span style="height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Push notification</span></div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Slices 7.1–7.4 (phase may be skipped).</b> Day Sun–Sat, default Monday; switch off = <span style="font-family:'Geist Mono',monospace">emailDay null</span>.</li>
+          <li><b style="color:#111827">Placement inferred</b> ("day configurable from Settings").</li>
+          <li><b style="color:#111827">Proposal:</b> deliver as a push instead of email. Spec 0001 lists push as out of scope, so this needs a decision.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 05-future-screens.md Brief 5</div>
+      </div>
+
+      <!-- F19 Export data -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Export data · share sheet</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Export data</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:13px;line-height:1.45;color:#6b7280;padding:0 4px">Download an Excel workbook to review income, expenses, and your budget. Current periods include transactions through today in Mexico City.</div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Period</span><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:#f1f2f4;border-radius:10px;padding:2px"><span style="height:34px;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">Year</span><span style="height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#4b5563">Month</span></div></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Year</span><div style="height:48px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;padding:0 14px;font-size:16px;display:flex;align-items:center" class="num">2026<svg style="margin-left:auto" width="12" height="16" viewBox="0 0 12 16" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6l4-4 4 4M2 10l4 4 4-4"/></svg></div></div>
+              <div style="height:50px;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Download Excel</div>
+            </div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;top:440px;background:#f6f7f9;border-radius:16px 16px 0 0;padding:8px 16px 34px;display:flex;flex-direction:column;gap:14px;z-index:6">
+              <span style="width:36px;height:5px;border-radius:3px;background:#d1d5db;align-self:center;flex-shrink:0"></span>
+              <div style="display:flex;align-items:center;gap:12px;padding:4px 4px 10px;border-bottom:1px solid #e6e8eb"><span style="width:40px;height:48px;border-radius:6px;background:#fff;border:1px solid #e6e8eb;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px;font-size:9px;font-weight:700;color:#15803d">XLSX</span><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">fast-expense-2026.xlsx</span><span style="font-size:12.5px;color:#6b7280">Excel workbook · 48 KB</span></div><span style="margin-left:auto;width:30px;height:30px;border-radius:50%;background:#e9eaed;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:13px;font-weight:700">✕</span></div>
+              <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;justify-items:center">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:58px;height:58px;border-radius:14px;background:#e3e6ea"></span><span style="font-size:11px;color:#374151">AirDrop</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:58px;height:58px;border-radius:14px;background:#e3e6ea"></span><span style="font-size:11px;color:#374151">Messages</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:58px;height:58px;border-radius:14px;background:#e3e6ea"></span><span style="font-size:11px;color:#374151">Mail</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:58px;height:58px;border-radius:14px;background:#e3e6ea"></span><span style="font-size:11px;color:#374151">Numbers</span></div>
+              </div>
+              <div style="background:#fff;border-radius:12px;overflow:hidden;font-size:15.5px">
+                <div style="height:46px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #eef0f2">Save to Files</div>
+                <div style="height:46px;display:flex;align-items:center;padding:0 14px">Copy</div>
+              </div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Browser download → iOS share sheet.</b> Save to Files, AirDrop, Mail or open in a spreadsheet app.</li>
+          <li><b style="color:#111827">Period select → segmented control; Year → wheel picker.</b> "Month" adds a month picker under Year.</li>
+          <li><b style="color:#111827">Copy and the Mexico City cut-off kept.</b> File name and size are illustrative.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 01-current-screens/settings-mobile.png (Export data card)</div>
+      </div>
+    </div>
+  </div>
+  <!-- ============ ROW 4 · ACCOUNT & LEGAL ============ -->
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;align-items:baseline;gap:14px"><h2 style="margin:0;font-size:30px;font-weight:700;white-space:nowrap">Account &amp; legal</h2><span style="font-size:15px;color:#6b7280">Brief 10 · CHORE-33, CHORE-36 · Brief 11 · CHORE-37</span></div>
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:nowrap">
+
+      <!-- F20 Account -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Account</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 10</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 14px;display:flex;align-items:center;gap:12px"><span style="width:52px;height:52px;border-radius:50%;background:#1d2027;color:#fff;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center">CH</span><div style="display:flex;flex-direction:column"><span style="font-size:24px;font-weight:700;letter-spacing:-.4px">Christian</span><span style="font-size:14px;color:#6b7280">demo@example.com</span></div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:14px">
+              <div class="rows" style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;overflow:hidden">
+                <div style="height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #eef0f2;font-size:15.5px">Email<span style="margin-left:auto;color:#6b7280;font-size:14.5px">demo@example.com</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+                <div style="height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:15.5px">Password<span style="margin-left:auto;font-weight:600;font-size:14.5px">Change</span><svg width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;height:48px;display:flex;align-items:center;justify-content:center;font-size:15.5px;font-weight:600;color:#dc2626">Sign out</div>
+              <div style="display:flex;flex-direction:column;gap:6px"><div style="border:1px solid #fecaca;border-radius:14px;background:#fef2f2;height:48px;display:flex;align-items:center;justify-content:center;font-size:15.5px;font-weight:600;color:#dc2626">Delete account</div><span style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px">Deletes your account and all your data. This can't be undone.</span></div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Replaces "Account · coming soon".</b> Email (read-only), Password "Change", Sign out — as in the Settings mock.</li>
+          <li><b style="color:#111827">Delete account added (CHORE-36);</b> separated and tinted so it can't be hit by mistake.</li>
+          <li><b style="color:#111827">The sidebar's avatar + name moves here.</b></li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: future-settings-privacy-account.png (Account) · 02-current-states/nav-drawer-mobile.png</div>
+      </div>
+
+      <!-- F21 Change password -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Change password · error state</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 10</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Account</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Change password</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Current password</span><div style="height:48px;border:1.5px solid #dc2626;border-radius:12px;background:#fff;padding:0 14px;font-size:16px;display:flex;align-items:center;letter-spacing:2px">••••••••••</div><span style="font-size:12.5px;color:#dc2626">Wrong current password.</span></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">New password</span><div style="height:48px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;padding:0 14px;font-size:16px;display:flex;align-items:center;letter-spacing:2px">••••••••••••••<svg style="margin-left:auto" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <div style="display:flex;align-items:center;gap:5px;margin-top:2px"><span style="flex:1;height:4px;border-radius:2px;background:#16a34a"></span><span style="flex:1;height:4px;border-radius:2px;background:#16a34a"></span><span style="flex:1;height:4px;border-radius:2px;background:#16a34a"></span><span style="font-size:12px;color:#6b7280;margin-left:6px">Strong</span></div>
+                <div style="display:flex;flex-direction:column;gap:3px;font-size:13px;color:#15803d">
+                  <div style="display:flex;align-items:center;gap:7px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>At least 8 characters</div>
+                  <div style="display:flex;align-items:center;gap:7px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One uppercase letter</div>
+                  <div style="display:flex;align-items:center;gap:7px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One lowercase letter</div>
+                  <div style="display:flex;align-items:center;gap:7px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One number</div>
+                  <div style="display:flex;align-items:center;gap:7px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One special character, like ! or #</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Confirm new password</span><div style="height:48px;border:1px solid #e6e8eb;border-radius:12px;background:#fafbfc;padding:0 14px;font-size:16px;display:flex;align-items:center;letter-spacing:2px">••••••••••••••</div></div>
+              <div style="height:50px;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Change password</div>
+              <div style="font-size:12.5px;line-height:1.45;color:#6b7280;padding:0 4px">You'll stay signed in here. Other devices are signed out.</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Same signup rules + live checklist</b> as the web signup form.</li>
+          <li><b style="color:#111827">Errors:</b> "Wrong current password." · "Must be different from your current password." · weak (checklist items turn grey) · "Passwords don't match."</li>
+          <li><b style="color:#111827">Inferred:</b> spec 0009 keeps one web <span style="font-family:'Geist Mono',monospace">/login</span>, so this may open the web page in a browser sheet instead of a native form.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 05-future-screens.md Brief 10 · 03-onboarding/00-signup-filled-mobile.png (checklist)</div>
+      </div>
+
+      <!-- F22 Delete account step 1 -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Delete account · step 1</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 10</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Account</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Delete account</div></div>
+            <div style="padding:0 16px;display:flex;flex-direction:column;gap:12px">
+              <div style="border:1px solid #fecaca;border-radius:14px;background:#fef2f2;padding:14px;display:flex;flex-direction:column;gap:8px">
+                <div style="font-size:15px;font-weight:600;color:#991b1b">This deletes your account and everything in it:</div>
+                <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.55;color:#7f1d1d">
+                  <li>Every expense, this month and all past months</li>
+                  <li>Income, budget rule, categories and limits</li>
+                  <li>Cards, card payments and points redemptions</li>
+                  <li>Your settlement history with Sam</li>
+                </ul>
+              </div>
+              <div style="border:1px solid #e6e8eb;border-radius:14px;background:#fff;height:48px;padding:0 14px;display:flex;align-items:center;gap:10px;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Export your data first<svg style="margin-left:auto" width="7" height="12" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" stroke="#c4c8ce" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#374151">Confirm with your current password</span><div style="height:48px;border:1.5px solid #111827;border-radius:12px;background:#fff;padding:0 14px;font-size:16px;display:flex;align-items:center;letter-spacing:2px">••••••••••</div></div>
+              <div style="height:50px;border-radius:12px;background:#dc2626;color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center">Delete account…</div>
+              <div style="height:40px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#6b7280">Cancel</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">CHORE-36.</b> Confirm with the current password (shares the session check with change password).</li>
+          <li><b style="color:#111827">Lists what goes, in the app's own words,</b> and offers Export first. Wording is inferred — no mock.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 05-future-screens.md Brief 10</div>
+      </div>
+
+      <!-- F23 Delete account step 2 -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Delete account · final alert</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 10</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#6b21a8;background:#f3e8ff;border-radius:999px;padding:3px 8px">Proposal</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Account</span></div>
+            <div style="padding:2px 20px 12px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Delete account</div></div>
+            <div style="padding:0 16px"><div style="border:1px solid #fecaca;border-radius:14px;background:#fef2f2;height:150px"></div></div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:280px;background:#fff;border-radius:16px;overflow:hidden;z-index:6;text-align:center">
+              <div style="padding:20px 18px 16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:17px;font-weight:700">Delete your account?</span><span style="font-size:13.5px;line-height:1.45;color:#4b5563">All your data is removed for good and you're signed out on every device. This can't be undone.</span></div>
+              <div style="height:48px;border-top:1px solid #e6e8eb;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;color:#dc2626">Delete account</div>
+              <div style="height:48px;border-top:1px solid #e6e8eb;display:flex;align-items:center;justify-content:center;font-size:16.5px">Cancel</div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Native alert</b> for the irreversible step; Delete is red and listed first, Cancel is the safe default.</li>
+          <li><b style="color:#111827">Proposal:</b> the brief marks this wording "(inferred)". After delete the session ends and the app returns to the sign-in screen.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 05-future-screens.md Brief 10</div>
+      </div>
+
+      <!-- F24 Sign out alert -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Sign out · confirm</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border-radius:999px;padding:3px 8px">Adjusted</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 14px;display:flex;align-items:center;gap:12px"><span style="width:52px;height:52px;border-radius:50%;background:#1d2027;color:#fff;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center">CH</span><div style="display:flex;flex-direction:column"><span style="font-size:24px;font-weight:700">Christian</span><span style="font-size:14px;color:#6b7280">demo@example.com</span></div></div>
+            <div style="position:absolute;inset:0;background:rgba(15,17,21,.45);z-index:5"></div>
+            <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:280px;background:#fff;border-radius:16px;overflow:hidden;z-index:6;text-align:center">
+              <div style="padding:20px 18px 16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:17px;font-weight:700">Sign out?</span><span style="font-size:13.5px;line-height:1.45;color:#4b5563">You'll need your email and password to sign back in.</span></div>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #e6e8eb"><span style="height:48px;display:flex;align-items:center;justify-content:center;font-size:16.5px;border-right:1px solid #e6e8eb">Cancel</span><span style="height:48px;display:flex;align-items:center;justify-content:center;font-size:16.5px;font-weight:700;color:#dc2626">Sign out</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">Sidebar sign-out icon → confirm alert.</b> On a phone a stray tap would cost a browser-sheet sign-in, so it asks once.</li>
+          <li><b style="color:#111827">Signs out this device only;</b> tokens are cleared from the Keychain.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 02-current-states/nav-drawer-mobile.png (sign-out icon)</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:nowrap">
+
+      <!-- F25 Privacy policy -->
+      <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px;font-weight:600">Privacy policy</span><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#1e40af;background:#dbeafe;border-radius:999px;padding:3px 8px">New · Brief 11</span></div>
+        <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="390" height="844" hint-size="390px,844px">
+          <div style="position:relative;height:844px;background:#fff;padding-top:54px;overflow:hidden;font-family:'Geist',-apple-system,system-ui,sans-serif;color:#111827">
+            <div style="height:44px;display:flex;align-items:center;padding:0 12px;font-size:16px"><svg width="11" height="18" viewBox="0 0 12 20" fill="none" aria-hidden="true"><path d="M10 2L2 10l8 8" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="margin-left:6px">Settings</span></div>
+            <div style="padding:2px 20px 8px"><div style="font-size:28px;font-weight:700;letter-spacing:-.5px">Privacy</div><div style="display:flex;align-items:center;gap:8px;margin-top:6px"><span style="font-size:13px;color:#6b7280">Updated November 2026</span><span style="font-size:11px;font-weight:600;color:#92400e;background:#fef3c7;border-radius:999px;padding:2px 8px">Copy needs owner sign-off</span></div></div>
+            <div style="padding:6px 20px 0;display:flex;flex-direction:column;gap:14px;font-size:14px;line-height:1.5;color:#374151">
+              <div><div style="font-size:16px;font-weight:600;color:#111827;margin-bottom:2px">What is stored</div>Your name, email and password (hashed). The money you log: expenses, income, cards, categories, limits and settlement entries, including your partner's name.</div>
+              <div><div style="font-size:16px;font-weight:600;color:#111827;margin-bottom:2px">Where</div>In a Postgres database hosted by Neon. The app and its API run on Vercel.</div>
+              <div><div style="font-size:16px;font-weight:600;color:#111827;margin-bottom:2px">Who can read it</div>You. The app's owner, as database admin, can also read it, and only does so to fix a problem.</div>
+              <div><div style="font-size:16px;font-weight:600;color:#111827;margin-bottom:2px">What error reports carry</div>When something breaks, a report with the screen, the time and technical details goes to the owner. <span style="background:#fef3c7;color:#92400e;padding:0 3px;border-radius:3px">[Owner to confirm which fields are scrubbed.]</span></div>
+              <div><div style="font-size:16px;font-weight:600;color:#111827;margin-bottom:2px">How to ask for deletion</div>Delete your account in Settings › Account, or message the owner and your data is removed.</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:83px;background:#0f1115;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:8px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="font-size:10.5px;font-weight:600">Dashboard</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span style="font-size:10.5px;font-weight:600">Expenses</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#8b929c;position:relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span style="position:absolute;top:-1px;left:calc(50% + 8px);width:9px;height:9px;border-radius:50%;background:#22c55e;border:2px solid #0f1115"></span><span style="font-size:10.5px;font-weight:600">Money</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span style="font-size:10.5px;font-weight:600">Settings</span></div>
+            </div>
+          </div>
+        </x-import>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:#4b5563;display:flex;flex-direction:column;gap:3px">
+          <li><b style="color:#111827">CHORE-37.</b> Short plain sections in the brief's order. Copy is a draft for the owner.</li>
+          <li><b style="color:#111827">Also opens signed out</b> from Sign up (as a sheet, no tab bar) and is the URL the App Store requires.</li>
+          <li><b style="color:#111827">Web page shown natively</b> so it reads like the rest of Settings; it can also load the public web page.</li>
+        </ul>
+        <div style="font-size:12px;color:#9ca3af">Source: 05-future-screens.md Brief 11</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+</x-dc>
+</body>
+</html>

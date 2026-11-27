@@ -1,0 +1,33 @@
+{
+    "branchPattern": "^(feat|chore|docs)/(?<id>[0-9]+\\.[0-9]+[a-z]?)-",
+    "slices": [
+        {
+            "id": "0.1",
+            "phase": 0,
+            "title": "Harness docs and design screens",
+            "type": "Foundation",
+            "dependsOn": []
+        },
+        {
+            "id": "0.2",
+            "phase": 0,
+            "title": "Session hooks and status scripts",
+            "type": "Foundation",
+            "dependsOn": ["0.1"]
+        },
+        {
+            "id": "0.3",
+            "phase": 0,
+            "title": "Tech stack, Xcode project, CI",
+            "type": "Foundation",
+            "dependsOn": ["0.1"]
+        },
+        {
+            "id": "0.4",
+            "phase": 0,
+            "title": "Design tokens and base components",
+            "type": "Foundation",
+            "dependsOn": ["0.3"]
+        }
+    ]
+}
