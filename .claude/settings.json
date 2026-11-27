@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json.schemastore.org/claude-code-settings.json",
+    "permissions": {
+        "deny": [
+            "Read(./.env)",
+            "Read(./.env.*)",
+            "Read(./.mcp.json)",
+            "Read(./Secrets.xcconfig)",
+            "Read(./**/*.p8)",
+            "Read(./**/*.p12)",
+
+            "Bash(cat .env*)",
+            "Bash(head .env*)",
+            "Bash(tail .env*)",
+
+            "Bash(rm -rf /*)",
+            "Bash(rm -rf ~*)",
+            "Bash(rm -rf $HOME*)",
+            "Bash(rm -rf ..*)",
+
+            "Bash(git push --force*)",
+            "Bash(git push -f *)",
+            "Bash(git commit --no-verify*)",
+            "Bash(git commit -n *)",
+            "Bash(git push origin main*)",
+            "Bash(git push origin HEAD:main*)",
+
+            "Bash(gh pr merge*)",
+            "Bash(gh pr review --approve*)",
+            "Bash(gh repo delete*)",
+            "Bash(gh auth token*)",
+
+            "Bash(chmod -R 777*)"
+        ]
+    }
+}

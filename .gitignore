@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcresult
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Secrets and local config. Never commit these.
+.env
+.env.*
+*.xcconfig.local
+Secrets.xcconfig
+.mcp.json
+*.p8
+*.p12
+*.mobileprovision
+
+# Claude Code local files
+.claude/settings.local.json
+.claude/worktrees/
+
+# Tool output
+.playwright-mcp/
