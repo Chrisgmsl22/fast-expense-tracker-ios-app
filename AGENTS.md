@@ -110,9 +110,10 @@ Found a secret in the repo? Stop. Tell Christian before you touch history.
 
 ## GitHub access
 
-- `gh` has two logins on this machine. The Blend host is the default. This repo's remote is
-  `github.com`, so `gh` picks the personal login when you run it inside the repo.
-- Outside the repo, set `GH_HOST=github.com` for that command.
+- `gh` has two logins on this machine. The Blend host is the default.
+- Set `GH_HOST=github.com` on every `gh` command for this repo, and write the repo as
+  `github.com/Chrisgmsl22/fast-expense-tracker-ios-app`. A short `owner/name` resolves to
+  the Blend host and fails with "Could not resolve to a Repository".
 - The token is in the keychain. Never print it. Never write it to a file.
 - All commit, push, approval and merge limits above still apply.
 
